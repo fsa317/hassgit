@@ -128,7 +128,7 @@ zwave:
       - zwave.leviton_vri061lx_multilevel_scene_switch
       - zwave.leviton_vrs151lz_binary_scene_switch
       - zwave.leviton_vrs151lz_binary_scene_switch_2
-      - zwave.schlage_be469nxcen_touchscreen_deadbolt
+      - zwave.schlage_be469_touchscreen_deadbolt
       - zwave.aeotec_zw117_range_extender_6
 alarm:
     name: Alarm
