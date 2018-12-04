@@ -1,0 +1,11 @@
+####UPGRADING
+
+
+####KEY UPDATE
+
+
+
+#####ZWAVE MAPPING:
+
+ubuntu@pine64:~/hassgit$ more /etc/udev/rules.d/99-usb-serial.rules
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1d6b", ATTRS{idProduct}=="0001", SYMLINK+="zwave"

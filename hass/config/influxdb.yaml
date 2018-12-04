@@ -1,0 +1,41 @@
+  host: 127.0.0.1
+#  username: home-assistant
+#  password: !secret influx_pwd
+  database: home_assistant
+  include:
+    entities:
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.home_usage_now
+      - sensor.battery_capacity
+      - sensor.battery_percentage
+      - sensor.battery_usage_now
+      - sensor.grid_usage_now
+      - sensor.solar_gen_now
+      - binary_sensor.entrance_motion
+      - sensor.living_room_thermostat_temperature
+      - binary_sensor.front_door
+      - climate.wine_room_temp
+      - climate.fin_temps
+      - sensor.wine_iscooling
+      - sensor.wine_isdefrosting
+      - sensor.upstairs_thermostat_temperature
+      - binary_sensor.family_motion
+      - binary_sensor.basement_motion
+      - switch.leviton_vrs151lz_binary_scene_switch_switch
+      - switch.leviton_vrs151lz_binary_scene_switch_switch_2
+      - light.leviton_vri061lx_multilevel_scene_switch_level
+      - switch.fireplace_switch
+      - sensor.current_solar_power
+      - sensor.wine_room_humidity
+      - sensor.disk_use_percent_
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.zwave_front_door_battery
+      - sensor.processor_use
+      - sensor.memory_free
+      - binary_sensor.ring_front_door_motion
+      - binary_sensor.ring_front_door_ding
+      - device_tracker.frank_samsung
+      - device_tracker.tiffanys_iphone
+      - input_number.wine_bottle_count

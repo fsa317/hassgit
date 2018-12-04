@@ -1,0 +1,8 @@
+  enable_front_door_autolock:
+    name: Enable Front Door AutoLock
+    initial: on
+    icon: mdi:lock
+
+  jarvis_on:
+    name: Jarvis enabled
+    initial: on

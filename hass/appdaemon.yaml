@@ -1,0 +1,25 @@
+log:
+  logfile: /home/homeassistant/.homeassistant/appd-logs/appd.log
+  errorfile: /home/homeassistant/.homeassistant/appd-logs/appd.err
+  logsize: 100000
+  log_generations: 3
+appdaemon:
+  threads: 10
+  cert_path: /etc/letsencrypt/live/frank.apsquared.co/
+  cert_verify: False
+  time_zone: America/New_York
+  #api_port: 5000
+  #api_key: !secret api_key
+  #api_ssl_certificate: <path/to/root/CA/cert>
+  #api_ssl_key: <path/to/root/CA/key>
+  plugins:
+    HASS:
+      type: hass
+      ha_url: http://127.0.0.1:8123
+      ha_key: !secret http_password
+hadashboard:
+  dash_dir: /home/homeassistant/.homeassistant/dashdir
+  dash_url: http://192.168.1.28:5050
+#  dash_ssl_certificate: /etc/letsencrypt/live/frank.apsquared.co/fullchain.pem
+#  dash_ssl_key: /etc/letsencrypt/live/frank.apsquared.co/privkey.pem
+  dash_compile_on_start: 1

@@ -1,0 +1,153 @@
+- alias: 'shut off jarvis'
+  trigger:
+    platform: 'time'
+    at: '21:00:00'
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.jarvis_on
+- alias: 'turn on jarvis'
+  trigger:
+    platform: 'time'
+    at: '8:00:00'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.jarvis_on
+
+- alias: 'Cooling Since'
+  trigger:
+      platform: numeric_state
+      entity_id: sensor.wine_cooling_since
+      above: 15
+  action:
+      service: notify.html_notifier
+      data_template:
+        title: "Wine Room Cooling"
+        message: "Wine room has been cooling for {{ states.sensor.wine_cooling_since.state }} minutes."
+- alias: 'Cooling Since 45'
+  trigger:
+      platform: numeric_state
+      entity_id: sensor.wine_cooling_since
+      above: 45
+  action:
+    - service: notify.html_notifier
+      data_template:
+        title: "Wine Room Cooling"
+        message: "Wine room has been cooling for {{ states.sensor.wine_cooling_since.state }} minutes. Turning off."
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.fin_temps
+        temperature: 70
+        operation_mode: Heat
+    - delay: 15:00
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.fin_temps
+        temperature: 36
+        operation_mode: Heat
+
+- alias: 'Tesla Since'
+  trigger:
+      platform: numeric_state
+      entity_id: sensor.tesla_lastupdate
+      above: 900
+  action:
+      service: notify.html_notifier
+      data_template:
+        title: "Tesla Update Delay"
+        message: "Tesla battery has not updated in 15 minutes"
+
+- alias: 'Tesla Since 1hr'
+  trigger:
+      platform: numeric_state
+      entity_id: sensor.tesla_lastupdate
+      above: 3600
+  action:
+      service: notify.html_notifier
+      data_template:
+        title: "Tesla Update Delay"
+        message: "Tesla battery has not updated in 1 hour"
+
+- alias: 'PiZero Off'
+  trigger:
+      platform: state
+      entity_id: binary_sensor.ping_binary_sensor
+      to: 'off'
+      for:
+        minutes: 1
+  action:
+      service: notify.html_notifier
+      data_template:
+        title: "Pizero1"
+        message: "Pizero1 is offline."
+
+- alias: 'Wine Off'
+  trigger:
+      platform: state
+      entity_id: binary_sensor.wine_connected
+      to: 'off'
+      for:
+        minutes: 1
+  action:
+      service: notify.html_notifier
+      data_template:
+        title: "Wine Room"
+        message: "Wine room is not connected."
+
+- alias: 'Back Door Open'
+  trigger:
+      platform: state
+      entity_id: binary_sensor.back_door
+      to: 'on'
+      for:
+        minutes: 5
+  action:
+      service: notify.html_notifier
+      data_template:
+        title: "Back Door Open"
+        message: "Back Door has been open for a while"
+
+- alias: 'Front Door Open'
+  trigger:
+      platform: state
+      entity_id: binary_sensor.front_door
+      to: 'on'
+      for:
+        minutes: 2
+  action:
+    - service: notify.html_notifier
+      data_template:
+        title: "Front Door Open"
+        message: "Front Door has been open for a while"
+    - service: script.tts_say
+      data:
+        msg: "Please close the front door.  This isn't a barn."
+
+- alias: 'Battery Level'
+  trigger:
+      platform: numeric_state
+      entity_id: sensor.zwave_front_door_battery
+      below: 30
+  action:
+      service: notify.html_notifier
+      data_template:
+        title: "Front Door Battery Low"
+        message: "Front Door Battery Low"
+
+- alias: 'Switch Timer'
+  trigger:
+    platform: time
+    at: "15:40:00"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.my_smart_plug
+    - service: script.tts_say
+      data:
+        msg: "Merry Christmas Apaps"
+
+- alias: 'Switch Timer Off'
+  trigger:
+    platform: time
+    at: "21:40:00"
+  action:
+    - service: switch.turn_off
+      entity_id: switch.my_smart_plug

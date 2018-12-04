@@ -1,0 +1,16 @@
+hello_world:
+  module: hello
+  class: HelloWorld
+
+doorlock:
+  module: homeutil
+  class: DoorLock
+  constrain_input_boolean: input_boolean.enable_front_door_autolock
+
+porchlight:
+  module: homeutil
+  class: OutsideLights
+
+homestate:
+  module: homestate
+  class: HomeState

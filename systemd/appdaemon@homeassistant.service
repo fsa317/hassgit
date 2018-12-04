@@ -1,0 +1,9 @@
+[Unit]
+Description=AppDaemon
+After=home-assistant@homeassistant.service
+[Service]
+Type=simple
+User=%I
+ExecStart=/home/homeassistant/appdaemon_venv/bin/appdaemon -c /home/homeassistant/.homeassistant/appdaemon.yaml
+[Install]
+WantedBy=multi-user.target

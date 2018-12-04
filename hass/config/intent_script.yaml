@@ -1,0 +1,66 @@
+TurnOnIntent:
+  speech:
+    text: "Yes Master.  Turning on {{ devicename }} {%- if 'christmas' in devicename.lower() -%}. Merry Christmas!{%- endif -%}"
+  card:
+    type: simple
+    title: "Turn on {{ devicename }}"
+    content: "Turned on {{ devicename }}"
+  action:
+    - service_template: >
+        {%- if 'fireplace' in devicename.lower() -%}
+          switch.toggle
+        {%- elif 'living' in devicename.lower() -%}
+          light.toggle
+        {%- elif 'master' in devicename.lower() -%}
+          switch.toggle
+        {%- elif 'bedroom' in devicename.lower() -%}
+          switch.toggle
+        {%- elif 'christmas' in devicename.lower() -%}
+          switch.toggle
+        {%- else -%}
+          {{ devicename }}
+        {%- endif -%}
+      data_template:
+        entity_id: >
+          {%- if 'fireplace' in devicename.lower() -%}
+          switch.fireplace_switch
+          {%- elif 'living' in devicename.lower() -%}
+          light.leviton_vri061lx_multilevel_scene_switch_level
+          {%- elif 'christmas' in devicename.lower() -%}
+          switch.my_smart_plug
+          {%- elif 'master' in devicename.lower() -%}
+          switch.leviton_vrs151lz_binary_scene_switch_switch_3
+          {%- elif 'bedroom' in devicename.lower() -%}
+          switch.leviton_vrs151lz_binary_scene_switch_switch_3
+          {%- endif -%}
+
+UnlockIntent:
+  speech:
+    text: "Yes Master.  Unlocking door"
+  card:
+    type: simple
+    title: "Door Unlocked"
+    content: "Your door is unlocked"
+  action:
+    service: lock.unlock
+    entity_id: "lock.schlage_be469nxcen_touchscreen_deadbolt_locked"
+
+WineRoomStatusIntent:
+  speech:
+    text: "Their are {{ states.input_number.wine_bottle_count.state | int }} bottles in storage.  The wine room is currently {{ states.climate.wine_room_temp.attributes.temperature }} degrees  with a humidity of {{ states.sensor.wine_room_humidity.state }} percent.  Perfect temperature for a glass of wine."
+  card:
+    type: simple
+    title: "Wine Room"
+    content: "Bottles: {{ states.input_number.wine_bottle_count.state | int }} Temp: {{ states.climate.wine_room_temp.attributes.temperature }} degrees  Humidity {{ states.sensor.wine_room_humidity.state }} percent."
+
+WhoFarted:
+  speech:
+    text: ""
+  card:
+    type: simple
+    title: "Who Farted?"
+    content: "Let me ask Jarvis who farted."
+  action:
+    service: script.tts_say
+    data:
+      msg: "It was me Jarvis, and it was a nasty one."

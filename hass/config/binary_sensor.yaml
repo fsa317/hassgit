@@ -1,0 +1,15 @@
+  - platform: ring
+  - platform: ping
+    host: pizero1
+  - platform: ping
+    host: jarvis
+    name: "Jarvis Ping"
+  - platform: ping
+    host: 192.168.1.21
+    name: "Fireplace ping"
+  - platform: template
+    sensors:
+      wine_connected:
+        friendly_name: "Wine Room Connected"
+        device_class: connectivity
+        value_template: "{{ ((as_timestamp(now())-as_timestamp(states.sensor.wine_room_humidity.last_updated)))|float < 60 }}"

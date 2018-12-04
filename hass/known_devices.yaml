@@ -1,0 +1,32 @@
+
+tiffanysiphonehome:
+  hide_if_away: false
+  icon:
+  mac: E0:33:8E:5A:35:5D
+  name: Tiffany NMAP
+  picture:
+  track: true
+
+galaxys9home:
+  hide_if_away: false
+  icon:
+  mac: 8C:45:00:29:FC:D6
+  name: Galaxy-S9 NMAP
+  picture:
+  track: true
+
+tiffanys_iphone:
+  hide_if_away: false
+  icon:
+  mac:
+  name: Tiffany GPS
+  picture:
+  track: true
+
+frank_franks9:
+  hide_if_away: false
+  icon:
+  mac: 
+  name: Frank GPS
+  picture:
+  track: true
