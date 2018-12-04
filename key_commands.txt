@@ -1,8 +1,15 @@
 ####UPGRADING
 
 
-####KEY UPDATE
+####SSL UPDATE
+sudo systemctl stop nginx
+sudo certbot renew
+sudo systemctl start nginx
 
+homeassistant@pine64:/etc/letsencrypt/live/frank.apsquared.co$ scp * pi@pizero1:~/ssl
+pi@pizero1:~/ssl
+
+on pizero1 sudo systemctl restart grafana-server
 
 
 #####ZWAVE MAPPING:
