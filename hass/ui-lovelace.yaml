@@ -7,11 +7,11 @@
 # THERMO https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card
 
 resources:
-  - url: /local/bignumber-card.js?v=3
+  - url: /local/bignumber-card.js?v=4
     type: js
-  - url: /local/layout-card.js?v=1
+  - url: /local/layout-card.js?v=4
     type: js
-  - url: /local/thermostat-card/thermostat-card.js?v=2
+  - url: /local/thermostat/thermostat-card.js?v=2
     type: module
 title: Home
 views:
@@ -61,7 +61,7 @@ views:
             title: Locations
             type: entities
             entities:
-              - device_tracker.frank_samsung
+              - device_tracker.frank_franks9
               - device_tracker.galaxys9home
               - device_tracker.tiffanys_iphone
               - device_tracker.tiffanysiphonehome
@@ -75,7 +75,7 @@ views:
               - type: entity-button
                 entity: lock.kwikset_touchpad_electronic_deadbolt_locked
               - type: entity-button
-                entity: lock.schlage_be469nxcen_touchscreen_deadbolt_locked
+                entity: lock.schlage_be469_touchscreen_deadbolt_locked
             - type: horizontal-stack
               cards:
               - type: entity-button

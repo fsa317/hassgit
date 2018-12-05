@@ -80,6 +80,9 @@ sun:
 #    volume: 0.75                   # Optional - default is 0.5
 
 
+media_player:
+  - platform: roku
+
 mqtt:
     broker: pizero1
 
@@ -115,6 +118,16 @@ zone:
     longitude: -73.4518569
     radius: 250
     icon: mdi:account-multiple
+  - name: McKenna
+    latitude: 40.690285
+    longitude: -73.447907
+    radius: 250
+    icon: mdi:school
+  - name: XSport
+    latitude: 40.683045
+    longitude: -73.434758
+    radius: 250
+    icon: mdi:dumbbell
 
 sensor: !include config/sensor.yaml
 binary_sensor: !include config/binary_sensor.yaml
