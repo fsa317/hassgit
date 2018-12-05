@@ -5,6 +5,7 @@
 # BIG NUMBER https://community.home-assistant.io/t/lovelace-bignumber-card/59280
 # LAYOUT https://github.com/thomasloven/lovelace-layout-card
 # THERMO https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card
+# SURVALLENCE - https://github.com/custom-cards/surveillance-card/blob/master/README.md
 
 resources:
   - url: /local/bignumber-card.js?v=4
