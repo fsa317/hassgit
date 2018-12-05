@@ -219,15 +219,15 @@ views:
       - type: picture-entity
         title: Front Door
         entity: camera.front_door
-        camera_image: camera.front_door
+        #camera_image: camera.front_door
         show_info: true
-        tap_action: dialog
+        tap_action: more-info
       - type: picture-entity
         title: Outside Camera
         entity: camera.mjpeg_camera
-        camera_image: camera.mjpeg_camera
+        #camera_image: camera.mjpeg_camera
         show_info: true
-        tap_action: dialog
+        tap_action: more-info
 ##################################################################
   - title: Weather
     icon: mdi:weather-snowy-rainy
