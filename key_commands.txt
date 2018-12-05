@@ -1,5 +1,6 @@
 ####UPGRADING
-ss
+
+
 ####SSL UPDATE
 sudo systemctl stop nginx
 sudo certbot renew
