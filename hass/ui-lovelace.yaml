@@ -351,3 +351,19 @@ views:
           - weblink.ring_video
       - type: media-control
         entity: media_player.bedroom
+      - type: entities
+        title: Washer
+        entities:
+          - sensor.washer_state
+          - sensor.washer_voltage
+          - sensor.washer_watts
+          - sensor.washer_amps
+          - sensor.washer_energy_today
+      - type: entities
+        title: Dryer
+        entities:
+          - sensor.dryer_state
+          - sensor.dryer_voltage
+          - sensor.dryer_watts
+          - sensor.dryer_amps
+          - sensor.dryer_energy_today

@@ -50,6 +50,7 @@ discovery:
     - plex_mediaserver
     - samsung_tv
 
+
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
@@ -63,22 +64,6 @@ map:
 
 # Track the sun
 sun:
-
-# Text to speech
-#tts:
-#  - platform: google
-#  - platform: amazon_polly
-#    aws_access_key_id: AKIAIBF756PY3HP7EU3A
-#    aws_secret_access_key: !secret polly_secret
-#    region_name: 'us-east-1'
-#    voice: Brian
-#    text_type: ssml
-
-#media_player:
-#  - platform: tts_bluetooth_speaker
-#    address: 0C:FC:83:98:36:24  # Required - for example, 00:2F:AD:12:0D:42
-#    volume: 0.75                   # Optional - default is 0.5
-
 
 media_player:
   - platform: roku
@@ -107,10 +92,7 @@ panel_iframe:
     title: Graphs
     icon: mdi:chart-bar
     url: https://frank.apsquared.co:3000/dashboard/db/hass-dash?refresh=30s&orgId=1&theme=light
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: https://frank.apsquared.co:3218
+
 
 zone:
   - name: Home

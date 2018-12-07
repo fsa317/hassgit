@@ -36,6 +36,8 @@
       - sensor.memory_free
       - binary_sensor.ring_front_door_motion
       - binary_sensor.ring_front_door_ding
-      - device_tracker.frank_samsung
+      - device_tracker.frank_franks9
       - device_tracker.tiffanys_iphone
       - input_number.wine_bottle_count
+      - sensor.washer_watts
+      - sensor.dryer_watts

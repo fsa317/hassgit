@@ -2,6 +2,7 @@
 
 HASSHOME=/home/homeassistant/.homeassistant
 
+cd ~/hassgit
 cp $HASSHOME/*.yaml hass/
 cp $HASSHOME/config/* hass/config/
 cp $HASSHOME/apps/* hass/apps/

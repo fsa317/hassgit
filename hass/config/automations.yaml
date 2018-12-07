@@ -151,3 +151,84 @@
   action:
     - service: switch.turn_off
       entity_id: switch.my_smart_plug
+### DRYER State ###########
+- alias: 'Dryer State - Drying'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.dryer_watts
+    above: 50
+    for:
+      seconds: 10
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/dryer
+        payload: 'Drying'
+        retain: 'true'
+- alias: 'Dryer State - Idle'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.dryer_watts
+    below: 6
+    for:
+      seconds: 5
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/dryer
+        payload: 'Idle'
+        retain: 'true'
+#### WASHER STATE ##########
+- alias: 'Washer State - Start'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.washer_watts
+    above: 5
+    for:
+      seconds: 10
+  condition:
+    condition: template
+    value_template: "{{ states.sensor.washer_state.state != 'Washing' }}"
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/washer
+        payload: 'Washing'
+        retain: 'true'
+- alias: 'Washer State - Idle'
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.washer_watts
+    below: 5
+    for:
+      minutes: 5
+  action:
+    - service: mqtt.publish
+      data:
+        topic: hass/state/washer
+        payload: 'Idle'
+        retain: 'true'
+############# Announcements ######
+- alias: 'Dryer Finished'
+  trigger:
+    platform: state
+    entity_id: sensor.dryer_state
+    from: 'Drying'
+    to: 'Idle'
+  action:
+    - service: script.tts_say
+      data:
+        msg: "The Dryer is done.  Please come get the clothes."
+- alias: 'Washer Finished'
+  trigger:
+    platform: state
+    entity_id: sensor.washer_state
+    from: 'Washing'
+    to: 'Idle'
+#  condition:
+#    condition: template
+#    value_template: "{{ states.sensor.dryer_state.state != 'Drying' }}"
+  action:
+    - service: script.tts_say
+      data:
+        msg: "The wash is done and is awaiting you."
