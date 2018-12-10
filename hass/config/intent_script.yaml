@@ -1,3 +1,16 @@
+LaundryIntent:
+  speech:
+    text: ""
+  card:
+    type: simple
+    title: "Laundry Status"
+    content: "Washer Status: {{ states.sensor.washer_state.state }}.\nDryer Status: {{ states.sensor.dryer_state.state }}"
+  action:
+    service: script.tts_say
+    data_template:
+      msg: >
+        Hello, let me check the laundry for you.  The washer is {{ states.sensor.washer_state.state }}.  The Dryer is {{ states.sensor.dryer_state.state }}
+
 TurnOnIntent:
   speech:
     text: "Yes Master.  Turning on {{ devicename }} {%- if 'christmas' in devicename.lower() -%}. Merry Christmas!{%- endif -%}"
