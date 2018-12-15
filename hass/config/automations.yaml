@@ -136,7 +136,7 @@
 - alias: 'Switch Timer'
   trigger:
     platform: time
-    at: "15:40:00"
+    at: "15:00:00"
   action:
     - service: switch.turn_on
       entity_id: switch.my_smart_plug
@@ -147,10 +147,11 @@
 - alias: 'Switch Timer Off'
   trigger:
     platform: time
-    at: "21:40:00"
+    at: "22:00:00"
   action:
     - service: switch.turn_off
       entity_id: switch.my_smart_plug
+
 ### DRYER State ###########
 - alias: 'Dryer State - Drying'
   trigger:
