@@ -1,2 +1,6 @@
   - platform: darksky
     api_key: !secret darksky
+    mode: daily
+  - platform: darksky
+    api_key: !secret darksky
+    mode: hourly
