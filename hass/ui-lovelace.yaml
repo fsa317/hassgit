@@ -14,6 +14,8 @@ resources:
     type: js
   - url: /local/thermostat/thermostat-card.js?v=2
     type: module
+  - url: /local/plan-coordinates.js?v=1
+    type: js
 title: Home
 views:
   - title: default_view
@@ -84,11 +86,11 @@ views:
                 entity: switch.fireplace_switch
                 icon: mdi:fire
                 tap_action: toggle
-              - type: entity-button
-                title: Christmas Tree
-                entity: switch.my_smart_plug
-                icon: mdi:pine-tree-box
-                tap_action: toggle
+              #- type: entity-button
+              #  title: Christmas Tree
+              #  entity: switch.my_smart_plug
+              #  icon: mdi:pine-tree-box
+              #  tap_action: toggle
           - type: vertical-stack
             cards:
             - type: entity-button
@@ -221,6 +223,12 @@ views:
         title: Front Door
         entity: camera.front_door
         #camera_image: camera.front_door
+        show_info: true
+        tap_action: more-info
+      - type: picture-entity
+        title: Basement Camera
+        entity: camera.amcrest_camera
+        #camera_image: camera.mjpeg_camera
         show_info: true
         tap_action: more-info
       - type: picture-entity
@@ -391,3 +399,72 @@ views:
           - sensor.dryer_watts
           - sensor.dryer_amps
           - sensor.dryer_energy_today
+################################################
+  - title: Main Floor
+    id: main-floor
+    icon: mdi:wrench
+    #panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:plan-coordinates
+          - type: picture-elements
+            image: /local/1stfloor_cropped.png
+            elements:
+              - type: state-icon
+                entity: switch.leviton_vrs151lz_binary_scene_switch_switch
+                icon: mdi:lightbulb
+                tap_action: toggle
+                style:
+                  top: 96%
+                  left: 57%
+              - type: state-icon
+                tap_action: toggle
+                entity: switch.fireplace_switch
+                title: fireplace
+                style:
+                  top: 32%
+                  left: 90%
+              - type: state-icon
+                tap_action: none
+                entity: binary_sensor.entrance_motion
+                style:
+                  top: 65%
+                  left: 76%
+              - type: state-icon
+                entity: switch.leviton_vrs151lz_binary_scene_switch_switch_2  #ENTRANCE
+                icon: mdi:lightbulb
+                tap_action: toggle
+                style:
+                  top: 65%
+                  left: 81%
+              - type: state-label
+                # prefix: 'Last motion: '
+                entity: sensor.entrancemd_tripped
+                style:
+                  top: 73%
+                  left: 78%
+              - type: state-icon
+                tap_action: none
+                entity: binary_sensor.family_motion
+                style:
+                  top: 29%
+                  left: 76%
+              - type: state-icon
+                entity: light.leviton_vri061lx_multilevel_scene_switch_level  #FAMILY
+                icon: mdi:lightbulb
+                tap_action: toggle
+                style:
+                  top: 29%
+                  left: 81%
+              - type: state-label
+                # prefix: 'Last motion: '
+                entity: sensor.familymd_tripped
+                style:
+                  top: 34%
+                  left: 78%
+              - type: state-label
+                entity: sensor.living_room_thermostat_temperature
+                style:
+                  top: 32%
+                  left: 50%
