@@ -16,6 +16,9 @@ homeassistant:
 alexa:
 ios:
 
+lovelace:
+  mode: yaml
+
 logger:
   default: warn
   logs:

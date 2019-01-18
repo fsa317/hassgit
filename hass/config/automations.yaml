@@ -112,7 +112,7 @@
       entity_id: binary_sensor.front_door
       to: 'on'
       for:
-        minutes: 2
+        minutes: 5
   action:
     - service: notify.html_notifier
       data_template:
@@ -120,7 +120,7 @@
         message: "Front Door has been open for a while"
     - service: script.tts_say
       data:
-        msg: "Please close the front door.  This isn't a barn."
+        msg: "The front door is open.  If you don't know now you know."
 
 - alias: 'Battery Level'
   trigger:
@@ -219,7 +219,7 @@
   action:
     - service: script.tts_say
       data:
-        msg: "The Dryer is done.  Please come get the clothes."
+        msg: "The Dryer is done.  The clothes are ready for whenever you would like."
 - alias: 'Washer Finished'
   trigger:
     platform: state
@@ -232,4 +232,4 @@
   action:
     - service: script.tts_say
       data:
-        msg: "The wash is done and is awaiting you."
+        msg: "The wash is done and are ready at convenience."
