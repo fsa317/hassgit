@@ -95,18 +95,21 @@ views:
             cards:
             - type: entity-button
               entity: switch.leviton_vrs151lz_binary_scene_switch_switch_3
-              tap_action: toggle
+              tap_action:
+                action: toggle
               icon: mdi:lightbulb
               name: Master Lights
             - type: light
               entity: light.leviton_vri061lx_multilevel_scene_switch_level
             - type: entity-button
               entity: switch.leviton_vrs151lz_binary_scene_switch_switch_2
-              tap_action: toggle
+              tap_action:
+                action: toggle
               icon: mdi:lightbulb
             - type: entity-button
               entity: switch.leviton_vrs151lz_binary_scene_switch_switch
-              tap_action: toggle
+              tap_action:
+                action: toggle
               icon: mdi:lightbulb
             - type: gauge
               entity: sensor.zwave_front_door_battery

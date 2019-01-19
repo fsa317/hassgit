@@ -1,3 +1,6 @@
 lock.kwikset_touchpad_electronic_deadbolt_locked:
   ignored: false
   polling_intensity: 2
+lock.schlage_be469_touchscreen_deadbolt_locked:
+  ignored: false
+  polling_intensity: 1
