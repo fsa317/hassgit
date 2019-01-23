@@ -12,7 +12,7 @@ resources:
     type: js
   - url: /local/layout-card.js?v=4
     type: js
-  - url: /local/thermostat/thermostat-card.js?v=2
+  - url: /local/thermostat/thermostat-card.js?v=7
     type: module
   - url: /local/plan-coordinates.js?v=1
     type: js
@@ -136,8 +136,7 @@ views:
                   'Off': 'off'
                   'cooling': 'cool'
                   'heating': 'heat'
-                sensor:
-                  sensor: sensor.living_room_thermostat_hvac_state
+                attribute: sensor.living_room_thermostat_hvac_state
             - type: custom:thermostat-card
               title: Upstairs Thermostat
               entity: climate.upstairs

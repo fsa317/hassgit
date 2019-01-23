@@ -38,6 +38,7 @@ class OutsideLights(hass.Hass):
   def initialize(self):
     self.run_at_sunrise(self.sunrise_cb)
     self.run_at_sunset(self.before_sunset_cb, offset=-1500)
+    self.log("Porch lights set")
 
   def sunrise_cb(self, kwargs):
     self.log("Sunrise CB")
