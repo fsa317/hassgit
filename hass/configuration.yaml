@@ -131,7 +131,7 @@ influxdb: !include config/influxdb.yaml
 envisalink: !include config/envisalink.yaml
 device_tracker: !include config/device_tracker.yaml
 intent_script: !include config/intent_script.yaml
-group: !include config/groups.yaml
+#group: !include config/groups.yaml
 automation: !include config/automations.yaml
 script: !include config/scripts.yaml
 weather: !include config/weather.yaml

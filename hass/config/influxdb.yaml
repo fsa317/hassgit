@@ -28,7 +28,7 @@
       - switch.fireplace_switch
       - sensor.current_solar_power
       - sensor.wine_room_humidity
-      - sensor.disk_use_percent_
+      - sensor.disk_use_percent
       - sensor.speedtest_download
       - sensor.speedtest_upload
       - sensor.zwave_front_door_battery
