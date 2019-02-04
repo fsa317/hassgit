@@ -145,8 +145,7 @@ views:
                   'Off': 'off'
                   'cooling': 'cool'
                   'heat': 'heat'
-                sensor:
-                  sensor: sensor.upstairs_thermostat_hvac_state
+                attribute: sensor.upstairs_thermostat_hvac_state
   #          - climate.living_room
   #          - sensor.living_room_thermostat_hvac_state
   #          - sensor.living_room_thermostat_humidity
