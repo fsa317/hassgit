@@ -28,7 +28,7 @@ class DoorLock(hass.Hass):
        self.handle = None
 
   def lockdoor(self,kwargs):
-    self.log("locking door")
+    self.log("[AUTODOORLOCK] locking door")
     self.call_service("lock/lock",entity_id="lock.schlage_be469_touchscreen_deadbolt_locked")
     self.handle = None
 
