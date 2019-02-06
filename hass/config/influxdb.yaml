@@ -14,6 +14,7 @@
       - sensor.solar_gen_now
       - binary_sensor.entrance_motion
       - sensor.living_room_thermostat_temperature
+      - sensor.basement_thermostat_temperature
       - binary_sensor.front_door
       - climate.wine_room_temp
       - climate.fin_temps
@@ -41,3 +42,5 @@
       - input_number.wine_bottle_count
       - sensor.washer_watts
       - sensor.dryer_watts
+      - sensor.washer_state
+      - sensor.dryer_state
