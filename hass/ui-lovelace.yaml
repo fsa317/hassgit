@@ -146,6 +146,15 @@ views:
                   'cooling': 'cool'
                   'heat': 'heat'
                 attribute: sensor.upstairs_thermostat_hvac_state
+            - type: custom:thermostat-card
+              title: Basement Thermostat
+              entity: climate.basement
+              hvac:
+                states:
+                  'Off': 'off'
+                  'cooling': 'cool'
+                  'heat': 'heat'
+                attribute: sensor.basement_thermostat_hvac_state
   #          - climate.living_room
   #          - sensor.living_room_thermostat_hvac_state
   #          - sensor.living_room_thermostat_humidity
