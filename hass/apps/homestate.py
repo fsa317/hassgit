@@ -27,7 +27,7 @@ class HomeState(hass.Hass):
   def doArriving(self, entity, attribute, old, new, kwargs):
       self.log("[HOMESTATE] doArriving")
       self.log("[HOMESTATE] Setting Nest to Home")
-      self.call_service("nest/set_mode",home_mode="home")
+      self.call_service("nest/set_away_mode",away_mode="home")
       self.run_in(self.arrivingCallback,60*2)
 
   def motion(self, entity, attribute, old, new, kwargs):
