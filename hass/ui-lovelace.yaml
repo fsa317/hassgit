@@ -85,7 +85,8 @@ views:
                 title: Fireplace
                 entity: switch.fireplace_switch
                 icon: mdi:fire
-                tap_action: toggle
+                tap_action: 
+                 action: toggle
               #- type: entity-button
               #  title: Christmas Tree
               #  entity: switch.my_smart_plug
@@ -234,19 +235,22 @@ views:
         entity: camera.front_door
         #camera_image: camera.front_door
         show_info: true
-        tap_action: more-info
+        tap_action: 
+          action: more-info
       - type: picture-entity
         title: Basement Camera
         entity: camera.amcrest_camera
         #camera_image: camera.mjpeg_camera
         show_info: true
-        tap_action: more-info
+        tap_action: 
+          action: more-info
       - type: picture-entity
         title: Outside Camera
         entity: camera.mjpeg_camera
         #camera_image: camera.mjpeg_camera
         show_info: true
-        tap_action: more-info
+        tap_action: 
+          action: more-info
 ##################################################################
   - title: Map
     icon: mdi:map
@@ -298,7 +302,8 @@ views:
           entity: camera.wu_doppler_weather
           camera_image: camera.wu_doppler_weather
           show_info: true
-          tap_action: dialog
+          tap_action: 
+            action: dialog
 ##################################################
   - title: Jarvis
     icon: mdi:robot
@@ -387,7 +392,8 @@ views:
             title: Bedroom TV
             entity: switch.bedroom_tv_power  #https://www.reddit.com/r/homeassistant/comments/8tl2pg/turn_roku_tv_onoff/
             icon: mdi:television-box
-            tap_action: toggle
+            tap_action: 
+              action: toggle
     #  - type: entities
     #    entities:
     #      - sensor.exchange_rate_1_btc
@@ -424,12 +430,14 @@ views:
               - type: state-icon
                 entity: switch.leviton_vrs151lz_binary_scene_switch_switch
                 icon: mdi:lightbulb
-                tap_action: toggle
+                tap_action: 
+                  action: toggle
                 style:
                   top: 96%
                   left: 57%
               - type: state-icon
-                tap_action: toggle
+                tap_action: 
+                  action: toggle
                 entity: switch.fireplace_switch
                 title: fireplace
                 style:
@@ -444,7 +452,8 @@ views:
               - type: state-icon
                 entity: switch.leviton_vrs151lz_binary_scene_switch_switch_2  #ENTRANCE
                 icon: mdi:lightbulb
-                tap_action: toggle
+                tap_action:
+                  action: toggle
                 style:
                   top: 65%
                   left: 81%
@@ -463,7 +472,8 @@ views:
               - type: state-icon
                 entity: light.leviton_vri061lx_multilevel_scene_switch_level  #FAMILY
                 icon: mdi:lightbulb
-                tap_action: toggle
+                tap_action: 
+                  action: toggle
                 style:
                   top: 29%
                   left: 81%
