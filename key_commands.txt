@@ -4,6 +4,8 @@ $ source /srv/homeassistant/bin/activate
 $ pip3 install --upgrade homeassistant
 
 ####SSL UPDATE
+RENEW CERT:
+sudo update-alternatives --config python3   (select 3.5)
 sudo systemctl stop nginx
 sudo certbot renew
 sudo systemctl start nginx
