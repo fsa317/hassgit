@@ -7,9 +7,9 @@ doorlock:
   class: DoorLock
   constrain_input_boolean: input_boolean.enable_front_door_autolock
 
-porchlight:
-  module: homeutil
-  class: OutsideLights
+#porchlight:
+#  module: homeutil
+#  class: OutsideLights
 
 homestate:
   module: homestate

@@ -254,3 +254,21 @@
     - service: script.tts_say
       data:
         msg: "The wash is done and are ready at convenience."
+
+##PORCH
+- alias: porch on
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.leviton_vrs151lz_binary_scene_switch_switch
+- alias: porch off
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "-00:45:00"
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.leviton_vrs151lz_binary_scene_switch_switch
