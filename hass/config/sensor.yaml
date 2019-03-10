@@ -17,6 +17,10 @@
     display_options:
       - exchangerate
   - platform: yr
+  - platform: mqtt
+    state_topic: "sensors/temp/TEMPMOTION1"
+    name: "Master Temp"
+    device_class: "temperature"
   - platform: dnsip
     name: "MyIP"
   - platform: mqtt
@@ -154,6 +158,9 @@
       - type: last_boot
   - platform: template
     sensors:
+      master_tripped:
+        entity_id: sensor.time
+        value_template: '{{ ((as_timestamp(now())-as_timestamp(states.binary_sensor.master_bed_motion.last_changed))/60) | round (0)}}'
       entrancemd_tripped:
         entity_id: sensor.time
         value_template: '{{ ((as_timestamp(now())-as_timestamp(states.binary_sensor.entrance_motion.last_changed))/60) | round (0)}}'
@@ -170,7 +177,7 @@
         entity_id: sensor.time
         friendly_name: 'Last Motion'
         value_template: >
-          {%- set sensors = [states("sensor.basementmd_tripped") | int, states("sensor.entrancemd_tripped") | int, states("sensor.familymd_tripped") | int , states("sensor.frontdoor_tripped")| int] -%}
+          {%- set sensors = [states("sensor.basementmd_tripped") | int, states("sensor.entrancemd_tripped") | int, states("sensor.familymd_tripped") | int , states("sensor.frontdoor_tripped")| int, states("sensor.master_tripped")| int] -%}
           {{ sensors | min }}
       wine_iscooling:
         value_template: '{% if is_state("climate.wine_room_temp", "Cooling") -%}1{%- else -%}0{%- endif %}'

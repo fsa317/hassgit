@@ -36,7 +36,7 @@ views:
               cards:
               - type: custom:bignumber-card
                 entity: sensor.entrancemd_tripped
-                title: 'Entrance Last Motion'
+                title: 'Entrance'
                 scale: 25px
               - type: custom:bignumber-card
                 entity: sensor.frontdoor_tripped
@@ -44,12 +44,16 @@ views:
                 scale: 25px
               - type: custom:bignumber-card
                 entity: sensor.familymd_tripped
-                title: 'Family Room Motion'
+                title: 'Family Room'
                 scale: 25px
               - type: custom:bignumber-card
                 entity: sensor.basementmd_tripped
-                title: 'Basement Last Motion'
+                title: 'Basement'
                 scale: 25px
+              - type: custom:bignumber-card
+                entity: sensor.master_tripped
+                scale: 25px
+                title: "Master"
             - type: glance
               title: Motion
               entities:
@@ -59,6 +63,8 @@ views:
                   name: Entrance
                 - entity: binary_sensor.family_motion
                   name: Family
+                - entity: binary_sensor.master_bed_motion
+                  name: Master
           - break
           - id: locations
             title: Locations
@@ -129,6 +135,9 @@ views:
               - binary_sensor.sliding_door
           - type: vertical-stack
             cards:
+            - type: custom:bignumber-card
+              entity: sensor.master_temp
+              title: 'Master Temp'
             - type: custom:thermostat-card
               title: First Floor Thermostat
               entity: climate.living_room

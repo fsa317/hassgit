@@ -7,6 +7,10 @@
   - platform: ping
     host: 192.168.1.21
     name: "Fireplace ping"
+  - platform: mqtt
+    state_topic: "sensors/motion/TEMPMOTION1"
+    name: "Master Bed Motion"
+    device_class: "motion"
   - platform: template
     sensors:
       wine_connected:
