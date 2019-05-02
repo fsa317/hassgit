@@ -7,6 +7,9 @@
     optimistic: false
   - platform: tplink
     host: 192.168.1.38
+  - platform: tplink
+    name: "Ticker"
+    host: 192.168.1.19
   - platform: command_line
     switches:
       #toggles office Roku TV

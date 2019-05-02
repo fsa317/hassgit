@@ -408,6 +408,10 @@ views:
     #      - sensor.exchange_rate_1_btc
       - type: media-control
         entity: media_player.bedroom
+      - type: entity-button
+        entity: switch.ticker
+        tap_action:
+          action: toggle
       - type: entities
         title: Washer
         entities:
