@@ -28,6 +28,10 @@ TurnOnIntent:
           switch.toggle
         {%- elif 'christmas' in devicename.lower() -%}
           switch.toggle
+        {%- elif 'ticker' in devicename.lower() -%}
+          switch.toggle
+        {%- elif 'scoreboard' in devicename.lower() -%}
+          switch.toggle
         {%- else -%}
           {{ devicename }}
         {%- endif -%}
@@ -43,6 +47,10 @@ TurnOnIntent:
           switch.bedroom_tv_power
           {%- elif 'bedroom light' in devicename.lower() -%}
           switch.leviton_vrs151lz_binary_scene_switch_switch_3
+          {%- elif 'ticker' in devicename.lower() -%}
+          switch.ticker
+          {%- elif 'scoreboard' in devicename.lower() -%}
+          switch.ticker
           {%- endif -%}
 
 UnlockIntent:
